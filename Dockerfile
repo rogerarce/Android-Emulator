@@ -23,10 +23,9 @@ RUN echo d56f5187479451eabf01fb78af6dfcb131a6481e >> $ANDROID_HOME/licenses/andr
 RUN echo 84831b9409646a918e30573bab4c9c91346d8abd > $ANDROID_HOME/licenses/android-sdk-preview-license
 
 RUN $ANDROID_HOME/tools/bin/sdkmanager "tools" "platform-tools"
-RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.0" "system-images;android-25;google_apis;x86"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.0" "build-tools;27.0.3"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28" "platforms;android-27"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" "extras;google;m2repository"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" "extras;google;m2repository"
+RUN $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-25;google_apis;x86"
 RUN $ANDROID_HOME/tools/bin/sdkmanager --licenses
-RUN $ANDROID_HOME/tools/bin/avdmanager create avd -n sample-avd -k "system-images;android-25;google_apis;x86" 
