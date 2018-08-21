@@ -30,6 +30,6 @@ RUN $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" "extras;goo
 RUN $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-25;google_apis;x86"
 RUN $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
-#RUN $ANDROID_HOME/tools/bin/avdmanager create avd -n avdname -k "system-images;android-25;google_apis;x86"
+RUN $ANDROID_HOME/tools/bin/avdmanager create avd -n avdname -k "system-images;android-25;google_apis;x86"
 # This will run the create emulator
-#CMD $ANDROID_HOME/tools/emulator -avd avdname -no-audio
+CMD $ANDROID_HOME/tools/emulator -avd avdname -no-audio
