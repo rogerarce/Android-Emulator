@@ -22,10 +22,14 @@ RUN echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > $ANDROID_HOME/licenses/andro
 RUN echo d56f5187479451eabf01fb78af6dfcb131a6481e >> $ANDROID_HOME/licenses/android-sdk-license
 RUN echo 84831b9409646a918e30573bab4c9c91346d8abd > $ANDROID_HOME/licenses/android-sdk-preview-license
 
-RUN $ANDROID_HOME/tools/bin/sdkmanager "tools" "platform-tools"
-RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.0" "build-tools;27.0.3"
-RUN $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28" "platforms;android-27"
+RUN $ANDROID_HOME/tools/bin/sdkmanager "tools" "platform-tools" "emulator"
+RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.0" "build-tools;27.0.3" "build-tools;25.0.1"
+RUN $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28" "platforms;android-27" "platforms:android-25"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" "extras;google;m2repository"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" "extras;google;m2repository"
 RUN $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-25;google_apis;x86"
 RUN $ANDROID_HOME/tools/bin/sdkmanager --licenses
+
+#RUN $ANDROID_HOME/tools/bin/avdmanager create avd -n avdname -k "system-images;android-25;google_apis;x86"
+# This will run the create emulator
+#CMD $ANDROID_HOME/tools/emulator -avd avdname -no-audio
